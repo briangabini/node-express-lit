@@ -14,7 +14,7 @@
     "checkJs": true,                                  /* Enable error reporting in type-checked JavaScript files. */
 
     /* Emit */
-    "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
+    // "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
     "removeComments": true,                           /* Disable emitting comments. */
     "noEmit": false,                                   /* Disable emitting files from a compilation. */
 
@@ -25,10 +25,13 @@
     // "strict": true,                                      /* Enable all strict type-checking options. */
     "noImplicitAny": true,                            /* Enable error reporting for expressions and declarations with an implied 'any' type. */
     // "noUnusedLocals": true,                           /* Enable error reporting when local variables aren't read. */
-    "noUnusedParameters": true,                       /* Raise an error when a function parameter isn't read. */
+    // "noUnusedParameters": true,                       /* Raise an error when a function parameter isn't read. */
 
     /* Completeness */
     "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
 
-  }
+    "outDir": "./dist",
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "src/components"]
 }

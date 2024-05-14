@@ -5,6 +5,7 @@ module.exports = {
     mode: 'development',
     entry: {
         home: path.resolve(__dirname, 'src', 'components', 'home.ts'),
+        // server: path.resolve(__dirname, 'src', 'index.ts'),
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -31,7 +32,8 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
-                exclude: /node_modules/,
+                // include: /src\/components/,
+                exclude: [/node_modules/, /src\/[^\/]*\.ts$/]
             }
             /* {
                 test: /\.scss$/,
@@ -59,11 +61,15 @@ module.exports = {
 
         ]
     },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Webpack App',
             filename: 'index.html',
-            template: 'src/templates/index.html'
+            template: 'src/templates/index.html',
+            inject: false, // disable automatic injection
         }),
     ]
 
