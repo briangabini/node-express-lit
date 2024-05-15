@@ -5,8 +5,10 @@ import "../assets/styles/base.css";
 @customElement("login-component")
 export class Login extends LitElement {
   static styles = css`
-    p {
-      color: blue;
+    body {
+      margin-inline: auto;
+      width: 50%;
+      border: 3px solid #ccc;
     }
   `;
 

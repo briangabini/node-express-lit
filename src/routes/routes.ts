@@ -2,6 +2,9 @@ import express, { Express, Request, Response } from "express";
 
 const router = express.Router();
 
+// other routes
+import userRouter from "./User/UserRoutes.js";
+
 // path alternative
 import { fileURLToPath } from "url";
 import path from "path";
@@ -22,5 +25,7 @@ router.get("/login", (req: Request, res: Response) => {
 router.get("/admin", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "..", "admin.html"));
 });
+
+router.use("/user", userRouter);
 
 export default router;
