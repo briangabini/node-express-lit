@@ -4,6 +4,7 @@
     "target": "es2020",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
     "experimentalDecorators": true,                   /* Enable experimental support for legacy experimental decorators. */
     "useDefineForClassFields": false,                  /* Emit ECMAScript-standard-compliant class fields. */
+    "emitDecoratorMetadata": true,
 
     /* Modules */
     "module": "esnext",                                /* Specify what module code is generated. */
