@@ -6,9 +6,11 @@
   "type": "module",
   "scripts": {
     "build": "npx rimraf dist && webpack && tsc",
+    "watch:build": "concurrently \"tsc --watch\" \"webpack --watch\"",
     "preserve": "npm run build",
-    "serve": "node dist/index.js",
-    "dev": "webpack serve"
+    "serve": "nodemon dist/index.js",
+    "dev": "concurrently \"npm:watch:build\" \"npm:serve\"",
+    "production": "npm:serve"
   },
   "repository": {
     "type": "git",
@@ -32,6 +34,7 @@
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.12.12",
+    "concurrently": "^8.2.2",
     "css-loader": "^7.1.1",
     "html-webpack-plugin": "^5.6.0",
     "rimraf": "^5.0.7",

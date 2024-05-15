@@ -16,7 +16,11 @@ router.get("/", (req: Request, res: Response) => {
 });
 
 router.get("/login", (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, "..", "index.html"));
+  res.sendFile(path.join(__dirname, "..", "login.html"));
+});
+
+router.get("/admin", (req: Request, res: Response) => {
+  res.sendFile(path.join(__dirname, "..", "admin.html"));
 });
 
 export default router;

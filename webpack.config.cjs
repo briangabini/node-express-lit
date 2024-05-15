@@ -5,7 +5,8 @@ module.exports = {
     mode: 'development',
     entry: {
         home: path.resolve(__dirname, 'src', 'components', 'home.ts'),
-        // server: path.resolve(__dirname, 'src', 'index.ts'),
+        login: path.resolve(__dirname, 'src', 'components', 'login.ts'),
+        admin: path.resolve(__dirname, 'src', 'components', 'admin.ts')
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -34,6 +35,10 @@ module.exports = {
                 use: 'ts-loader',
                 // include: /src\/components/,
                 exclude: [/node_modules/, /src\/[^\/]*\.ts$/]
+            },
+            {
+                test: /\.(svg|jpg|png|gif|jpeg)$/i,
+                type: 'asset/resource'
             }
             /* {
                 test: /\.scss$/,
@@ -54,10 +59,7 @@ module.exports = {
                     }
                 }
             },
-            {
-                test: /\.(svg|jpg|png|gif|jpeg)$/i,
-                type: 'asset/resource'
-            } */
+             */
 
         ]
     },
@@ -66,10 +68,19 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Webpack App',
+            title: 'Webpack App - Home',
             filename: 'index.html',
             template: 'src/templates/index.html',
-            inject: false, // disable automatic injection
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Webpack App - Login',
+            filename: 'login.html',
+            template: 'src/templates/login.html',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Webpack App - Admin',
+            filename: 'admin.html',
+            template: 'src/templates/admin.html',
         }),
     ]
 

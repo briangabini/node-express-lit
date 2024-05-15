@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+import bodyParser from "body-parser";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -15,14 +16,12 @@ import router from "./routes/routes.js";
 
 const app = express();
 
+// Use body-parser middleware to parse incoming JSON requests
+app.use(bodyParser.json());
+
 // Serve static files from the 'dist' directory
 app.use(express.static(path.join(__dirname, "..", "dist")));
-
 app.use(router);
-/* app.get("/", (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, "index.html"));
-  //   res.redirect("http://localhost:4000/index.html");
-}); */
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
